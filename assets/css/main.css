@@ -3022,21 +3022,41 @@ input, select, textarea {
 
 		}
 
-/* Section/Article */
+/* Post Title-Card */
 
-	section.special, article.special {
-		text-align: center;
-	}
+/* Compact + vertically centered header */
+.post.title-card > header {
+    display: flex;
+    align-items: center;      
+    padding: 0;               /* keep header itself tight */
+    margin: 0;
+    left: 0;
+    width: 100%;
+    border-bottom: none;
+    height: 60px;             /* controls exact vertical centering */
+}
 
-	header p {
-		font-family: "Raleway", Helvetica, sans-serif;
-		font-size: 0.7em;
-		font-weight: 400;
-		letter-spacing: 0.25em;
-		line-height: 2.5;
-		margin-top: -1em;
-		text-transform: uppercase;
-	}
+/* Equal padding around the whole card (top + bottom match) */
+.post.title-card {
+    padding: 0 2em;          /* NO vertical padding — let header height control spacing */
+    margin: 0 0 1em 0;       /* tighter space between cards */
+    display: flex;
+    align-items: center;     /* vertical alignment inside card */
+}
+
+/* Remove padding inside title wrapper */
+.post.title-card > header .title {
+    margin: 0;
+    padding: 0;
+}
+
+/* Title styling */
+.post.title-card > header .title h3 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-align: left;
+}
 
 /* Table */
 
