@@ -2621,6 +2621,15 @@ input, select, textarea {
 					margin-bottom: 0;
 				}
 
+				/* Sidebar mini links (A-Z / Favorites): center text vertically with the thumbnail */
+				#sidebar ul.posts article {
+  					align-items: center;          /* was flex-start in the template */
+				}
+
+				#sidebar ul.posts article header h3 {
+  					margin-top: 0;                /* removes the slight top nudge */
+				}
+
 /* Mini Post */
 
 	.mini-post {
@@ -3056,6 +3065,54 @@ input, select, textarea {
     font-size: 1.2em;
     font-weight: 700;
     text-align: left;
+}
+
+/* Alphabet divider: A -------------- */
+.alpha-divider {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  /* matches the left/right inset of your cards */
+  padding: 0 2em;
+
+  /* space above/below divider */
+  margin: 1.25em 0 0.75em 0;
+}
+
+.alpha-divider span {
+  font-weight: 800;
+  font-size: 0.9em;
+  letter-spacing: 0.15em;
+}
+
+/* the long line */
+.alpha-divider::after {
+  content: "";
+  flex: 1;
+  margin-left: 1em;
+  border-bottom: 1px solid rgba(160, 160, 160, 0.35);
+  transform: translateY(-0.1em);
+}
+
+/* Use the theme hover teal as a "brand" color */
+:root {
+  --accent: #2ebaae;
+}
+
+/* Alphabet divider letter color */
+.alpha-divider span {
+  color: var(--accent);
+}
+
+/* "MY RECIPE BOOK" (top-left) color */
+#header h1 a {
+  color: var(--accent);
+}
+
+/* Optional: keep it teal on hover too (prevents any inherited changes) */
+#header h1 a:hover {
+  color: var(--accent) !important;
 }
 
 /* Table */
