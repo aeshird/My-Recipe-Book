@@ -3033,76 +3033,53 @@ input, select, textarea {
 
 /* Post Title-Card */
 
-/* Compact + vertically centered header */
 .post.title-card > header {
-    display: flex;
-    align-items: center;      
-    padding: 0;               /* keep header itself tight */
-    margin: 0;
-    left: 0;
-    width: 100%;
-    border-bottom: none;
-    height: 60px;             /* controls exact vertical centering */
+  display: flex;
+  align-items: center;     /* keeps text vertically centered */
+  padding: 0;
+  margin: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: none;
+  height: 46px;            /* ↓ smaller white box height (was 60px) */
 }
 
-/* Equal padding around the whole card (top + bottom match) */
 .post.title-card {
-    padding: 0 2em;          /* NO vertical padding — let header height control spacing */
-    margin: 0 0 1em 0;       /* tighter space between cards */
-    display: flex;
-    align-items: center;     /* vertical alignment inside card */
-}
-
-/* Remove padding inside title wrapper */
-.post.title-card > header .title {
-    margin: 0;
-    padding: 0;
-}
-
-/* Title styling */
-.post.title-card > header .title h3 {
-    margin: 0;
-    font-size: 1.2em;
-    font-weight: 700;
-    text-align: left;
-}
-
-/* Alphabet divider: A -------------- */
-.alpha-divider {
+  padding: 0 1.5em;        /* ↓ slightly less horizontal padding (was 2em) */
+  margin: 0 0 0.75em 0;    /* ↓ tighter spacing between cards */
   display: flex;
   align-items: center;
+}
+
+.post.title-card > header .title {
+  margin: 0;
+  padding: 0;
+}
+
+.post.title-card > header .title h3 {
+  margin: 0;
+  font-size: 1.0em;        /* ↓ smaller text (was 1.2em) */
+  font-weight: 700;
+  line-height: 1;          /* keeps the text compact */
+  letter-spacing: 0.18em;  /* optional: reduce spacing from the theme */
+  text-align: left;
+}
+
+/* Make the card's LEFT EDGE line up with the A */
+.post.title-card {
+  margin: 0 2em 0.75em 2em;   /* matches .alpha-divider padding */
+  padding: 0;                 /* no extra inset on the box itself */
+}
+
+/* Put the spacing inside the box so text doesn't touch the border */
+.post.title-card > header {
+  height: 46px;
+  padding: 0 1.5em;           /* inner padding for the text */
+  display: flex;
+  align-items: center;
+  border-bottom: none;
+  left: 0;
   width: 100%;
-
-  /* matches the left/right inset of your cards */
-  padding: 0 2em;
-
-  /* space above/below divider */
-  margin: 1.25em 0 0.75em 0;
-}
-
-.alpha-divider span {
-  font-weight: 800;
-  font-size: 0.9em;
-  letter-spacing: 0.15em;
-}
-
-/* the long line */
-.alpha-divider::after {
-  content: "";
-  flex: 1;
-  margin-left: 1em;
-  border-bottom: 1px solid rgba(160, 160, 160, 0.35);
-  transform: translateY(-0.1em);
-}
-
-/* Use the theme hover teal as a "brand" color */
-:root {
-  --accent: #2ebaae;
-}
-
-/* Alphabet divider letter color */
-.alpha-divider span {
-  color: var(--accent);
 }
 
 /* "MY RECIPE BOOK" (top-left) color */
@@ -3113,6 +3090,39 @@ input, select, textarea {
 /* Optional: keep it teal on hover too (prevents any inherited changes) */
 #header h1 a:hover {
   color: var(--accent) !important;
+}
+
+/* Alphabet divider container */
+
+:root {
+  --accent: #2ebaae;
+  --alpha-line-offset: 0.08em; /* tweak this up/down until it looks perfect */
+}
+
+.alpha-divider{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 2em;
+  margin: 1.25em 0 0.75em 0;
+}
+
+.alpha-divider span{
+  display: inline-block;
+  font-size: 1.35em;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  line-height: 1;
+  color: var(--accent);
+}
+
+.alpha-divider::after{
+  content: "";
+  flex: 1;
+  margin-left: 1em;
+  height: 2px;
+  background: var(--accent);
+  transform: translateY(var(--alpha-line-offset));
 }
 
 /* Table */
